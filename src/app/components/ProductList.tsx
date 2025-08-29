@@ -1,4 +1,6 @@
 import { ProductsType } from "@/types";
+import CategoryBar from "./CategoryBar";
+import ProductCard from "./ProductCard";
 
 
 // TEMPORARY
@@ -115,5 +117,14 @@ const products: ProductsType = [
 
 
 const ProductList = () => {
-  return <div>ProductList</div>;
+  return <div className="w-full">
+    <CategoryBar /> 
+    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
+      {products.map((product) => (
+        <ProductCard product={product} key={product.id}/>
+      ))}
+    </div>
+  </div>;
 }
+
+export default ProductList;
